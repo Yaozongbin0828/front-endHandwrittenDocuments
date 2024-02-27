@@ -1,1 +1,51 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-10-19 19:41:07
+ * @LastEditTime: 2021-10-19 20:14:00
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edi
+ * @FilePath: \画0.5px的线\1.html
+-->
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 方法1 */
+        .half-pixel-line {
+            width: 100px;
+            height: 1px;
+            /* 设置高度为1像素 */
+            background-color: black;
+            /* 设置线条颜色 */
+            transform: scaleY(0.5);
+            /* 使用transform缩放高度 */
+        }
+
+        /* 方法2 */
+        .box1 {
+            border: 1px solid #000;
+            height: 100px;
+            width: 100px;
+            transform: scale(0.5, 0.5);
+            font-size: 16px;
+        }
+
+        .container[data-device="2"] {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="half-pixel-line"></div>
+    <div class="box1">
+        <div class="container" data-device={{window.devicePixelRatio}}></div>
+    </div>
+</body>
+
+</html>
