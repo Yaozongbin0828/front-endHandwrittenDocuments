@@ -16,6 +16,7 @@ function QuickSort(arr) {
         }
     }
     // 递归地对`left`和`right`数组进行快速排序，然后将排序好的`left`数组、`current`元素和排序好的`right`数组拼接在一起，最终返回排序好的数组。
+    // left=>right 从小到大
     return QuickSort(left).concat(current, QuickSort(right));
 }
 
