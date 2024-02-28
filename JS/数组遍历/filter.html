@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>filter</title>
+    <!--
+        基本语法：let newArr(新数组) = 数组.filter(function(数组[i],索引值){return 条件1 === 条件2});
+
+        将数组中满足条件的筛选出来，生成一个新的数组，所以需要用一个变量去接受,常用于筛选& 删除业务;
+    -->
+</head>
+
+<body>
+    <script>
+        //将数组[10,'',0,23,'',8,'',88,'']中空的数组去除
+        const arr = [10, 10, 10, 23, '', 8, '', 88, '']
+        // const arr = new Array('');
+        let newArr = arr.filter((value, index) => {
+
+            return value !== '';
+        })
+        console.log(newArr); // => [10, 0, 23, 8, 88]
+    </script>
+</body>
+
+</html>
