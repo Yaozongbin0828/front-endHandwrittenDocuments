@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>findIndex</title>
+</head>
+
+<body>
+<!--
+基本语法：let i = 数组.findIndex(function(数组[i],索引值)){return 数组[i]===条件};
+找到第一个满足条件的值，会返回数值的索引值(下标);
+-->
+    <script>
+        const arr = ['a', 'b', 'c', 'd', 'e', 'f'];
+        let newArr = arr.findIndex((value, index) => {
+            return value === 'f';
+        })
+        console.log(newArr)
+    </script>
+</body>
+
+</html>
