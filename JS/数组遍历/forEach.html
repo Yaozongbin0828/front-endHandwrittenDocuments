@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>forEach</title>
+    <!--
+        基本语法： 数组.forEach(function(数组[i],索引值){ 业务处理 });
+        功能类似于for循环，但是比for循环更加简洁明了，更易于使用，效率更高;
+    -->
+</head>
+
+<body>
+    <script>
+        //求出数组中大于10且不等于10
+        const arr = [1, 8, 6, 12, 36, 4, 10, 77]
+        let newArr = []
+        arr.forEach((value, index) => {
+            if (value > 10) newArr.push(value);
+        })
+        console.log(newArr); // => [12,36,77]
+    </script>
+</body>
+
+</html>
