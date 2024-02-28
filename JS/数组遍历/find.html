@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>find</title>
+</head>
+
+<body>
+    <!--
+基本语法：let item = 数组.find(function(数组[i],索引值)){return 数组[i]===条件};
+找到第一个满足条件的值，会返回数值;
+-->
+    <script>
+        const arr = ['安踏', '新百伦', '耐克', '阿迪达斯'];
+
+        let newArr = arr.find((value, index) => {
+            return value === '耐克';
+        })
+
+        console.log(newArr); //耐克
+        console.log(arr[2]); //耐克
+    </script>
+</body>
+
+</html>
