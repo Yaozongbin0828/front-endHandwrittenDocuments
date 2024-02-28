@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Some</title>
+</head>
+
+<body>
+    <!--
+基本语法：：let sta = 数组.some(function(数组[i],索引值)){return 数组[i]===条件};
+检测数组中是否有元素满足指定条件，返回布尔值；
+-->
+</body>
+<script>
+    const arr = ['a', 'b', 'c', 'd', 'e']
+    const newArr = arr.some((value, index) => {
+        return value === 'a';
+    })
+    console.log(newArr);
+</script>
+
+</html>
