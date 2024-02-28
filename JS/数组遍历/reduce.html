@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>reduce</title>
+</head>
+
+<body>
+    <!--
+    基本语法：：let res = 数组.reduce(callback(返回reduce内部上一次回调return的值/上次回调没值，
+    则返回数组第一个值(即初始值),当前的数组[i],索引值,数组),设置初始值){return 上一次的值+当次的值};
+    reduce功能和forEach、map类似，但个人感觉reduce在多层解构数组合并上比较好用；
+-->
+</body>
+<script>
+    //数组求和
+    let arr = [2, 10, 3, 5]
+    let sum = arr.reduce(function (previousValue, currentValue, index, arr) {
+        console.log(previousValue, currentValue, index);    // 2 10 1
+        return previousValue + currentValue                // 12 3 2
+    })                                                     // 15 5 3
+    console.log(sum); // =>       20
+
+</script>
+
+</html>
