@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Map</title>
+    <!--
+        基本语法：let newArr(新数组) = 数组.map(function(数组[i],索引值){return 数组[i]+2});
+        map的使用和forEach类似，常用来操作原数组里面的内容，会生成新的数组;
+    -->
+</head>
+
+<body>
+    <script>
+        //将数组[5,3,7,11,20,15]中每个数组＋2
+
+        const arr = [5, 3, 7, 11, 20, 15]
+        let newArr = arr.map((value) => {
+            return value + 2
+        })
+        console.log(newArr); // => [7, 5, 9, 13, 22, 17]
+        
+    </script>
+</body>
+
+</html>
