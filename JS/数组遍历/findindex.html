@@ -17,6 +17,13 @@
             return value === 'f';
         })
         console.log(newArr)
+
+        const users = [{ name: '张三', age: '20' }, { name: '李四', age: '21' }, { name: '王五', age: '22' }]
+        
+        //查找对象下标
+        let findUsersIndex = users.findIndxe(f => f.name === '李四');
+        console.log(findUsersIndex);// 1
+        
     </script>
 </body>
 
