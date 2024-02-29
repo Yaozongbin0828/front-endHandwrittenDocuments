@@ -22,6 +22,25 @@
     })                                                     // 15 5 3
     console.log(sum); // =>       20
 
+    //例子 数组对象求和
+    let users = [{ name: '张三', age: 20 }, { name: '张三', age: 20 }, { name: '李四', age: 21 }, { name: '王五', age: 22 }];
+    let sum = users.reduce((pre,current)=>{
+        return pre + current.age; // 年龄求和
+        // return pre + current.age + 10; 每个对象age+10
+    },0)
+    console.log(sum); //83
+
+    //例子 数组对象统计
+    let count = users.reduce((pre, current) => {
+        if (current.name in pre) {
+            pre[current.name]++;
+        } else {
+            pre[current.name]=1;
+        }
+        return pre;
+    }, {})
+    console.log(count); // 2:1:1
+                             
 </script>
 
 </html>
