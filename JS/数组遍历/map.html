@@ -19,6 +19,17 @@
             return value + 2
         })
         console.log(newArr); // => [7, 5, 9, 13, 22, 17]
+
+        //例子
+        let users = [{ name: '张三', age: 20 }, { name: '李四', age: 21 }, { name: '王五', age: 22 }];
+
+        //每个对象名字添加元素 类似Java里的String流
+        let newName = users.map(n => n.name + '是人');
+        let newAge = users.map(a => a.age + 10);
+
+        //数组扁平化
+        console.log(newName);// 张三是人 李四是人 王五是人
+        console.log(newAge);// 30 31 32
         
     </script>
 </body>
