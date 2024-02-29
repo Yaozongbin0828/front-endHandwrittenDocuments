@@ -21,6 +21,17 @@
             return value !== '';
         })
         console.log(newArr); // => [10, 0, 23, 8, 88]
+
+        //例子
+        const users = [{ name: '张三', age: '20' }, { name: '李四', age: '21' }, { name: '王五', age: '22' }]
+        
+        //筛选
+        let newUsers = users.filter(userInfoKeep => userInfoKeep.age > 20 && userInfoKeep.name.includes('李'));
+        console.log(newUsers); //李四
+
+        //删除
+        let delUsers = users.filter(userInfoDel => userInfoDel.name !== '李四' && userInfoDel.name !== '张三')
+        console.log(delUsers); //王五
     </script>
 </body>
 
