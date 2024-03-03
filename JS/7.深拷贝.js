@@ -82,3 +82,39 @@ function deepClone(obj) {
   }
   return result;
 }
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// 原始对象
+const originalObj = {
+    name: "Alice",
+    age: 30,
+    address: {
+        city: "New York",
+        zip: "10001"
+    },
+    hobbies: ["reading", "hiking"]
+};
+
+// 使用深拷贝函数进行深拷贝
+const deepCopyObj = deepCopy(originalObj);
+
+// 修改深拷贝后的对象，不影响原始对象
+deepCopyObj.name = "Bob";
+deepCopyObj.address.city = "San Francisco";
+deepCopyObj.hobbies.push("cooking");
+
+// 输出原始对象和深拷贝后的对象
+console.log("Original Object:", originalObj);
+//   Original Object: {
+//     name: 'Alice',
+//     age: 30,
+//     address: { city: 'New York', zip: '10001' },
+//     hobbies: [ 'reading', 'hiking' ]
+//   }
+
+console.log("Deep Copy Object:", deepCopyObj);
+//   Deep Copy Object: {
+//     name: 'Bob',
+//     age: 30,
+//     address: { city: 'San Francisco', zip: '10001' },
+//     hobbies: [ 'reading', 'hiking', 'cooking' ]
+//   }
