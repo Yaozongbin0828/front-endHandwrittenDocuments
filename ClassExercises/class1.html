@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2214040506-姚宗彬</title>
+</head>
+<style>
+    .table {
+        font-size: 25px;
+        text-align: left;
+    }
+
+    span {
+        display: inline-block;
+        width: 100px;
+        height: 45px;
+        line-height: 45px;
+        border: 1px solid #000 !important;
+    }
+</style>
+
+<body>
+    <div class="table" id="Table"></div>
+
+
+    <script>
+
+        //浏览器视图输出
+        const tableContainer = document.getElementById('Table');
+        for (let i = 1; i <= 9; i++) {
+            // 每一行开始的空格数等于9减去当前行数
+            let spaces = ' '.repeat(9 - i);
+            spaces += '\n';
+            let rowHtml = spaces;
+            // 每一行的乘法表达式
+            for (let j = 1; j <= i; j++) {
+                let product = i * j;
+                // 拼接HTML字符串/使用 span 标签包裹每个乘法表达式
+                rowHtml += `<span>${j}x${i}=${product}</span>`;
+            }
+
+            // 将行内容添加到页面上
+            tableContainer.innerHTML += `<div>${rowHtml}</div>`;
+        }
+
+        //控制台输出
+        var str = '';
+        for (var i = 1; i <= 9; i++) {
+
+            for (var j = 1; j <= i; j++) {
+                str +=  + j + 'x' + i + '=' + i * j + ' ' ;
+            }
+            str += '\n';
+        }
+        console.log(str);
+        
+    </script>
+</body>
+
+</html>
