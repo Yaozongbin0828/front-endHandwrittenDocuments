@@ -1,14 +1,14 @@
 //手写apply
-Function.prototype._apply = function(thisArg,argArray){
-  const fn = this;
-  thisArg =
-    thisArg !== null && thisArg !== undefined ? Object(thisArg) : window;
-  thisArg.fn = fn;
-  let result;
-  argArray = argArray || [];
-  result = thisArg.fn(...argArray);
-  delete thisArg.fn;
-  return result;
+Function.prototype.apply = function (thisArg, argArray) {
+    const fn = this;
+    thisArg =
+        thisArg !== null && thisArg !== undefined ? Object(thisArg) : window;
+    thisArg.fn = fn;
+    let result;
+    argArray = argArray || [];
+    result = thisArg.fn(...argArray);
+    delete thisArg.fn;
+    return result;
 }
 // 这段代码定义了一个自定义的 `_apply` 方法，它模拟了 JavaScript 中原生的 `apply` 方法的行为。让我来逐行解释这段代码：
 
