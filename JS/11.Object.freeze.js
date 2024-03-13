@@ -19,3 +19,18 @@ const deepFreeze = (object) => {
 3. 函数式编程：在函数式编程中，不可变性是一个重要的概念。通过冻结对象，你可以确保数据不会被修改，从而更容易地实现函数式编程的原则。
 
 总之，对象冻结是一种有用的技术，可以帮助你确保对象的不可变性，从而提高代码的可靠性和可维护性。 
+
+// 创建一个可变对象
+let person = {
+  name: "Jakson",
+  age: 23
+};
+
+// 检查对象是否被冻结
+console.log(Object.isFrozen(person)); // 输出: false
+
+// 冻结对象
+Object.freeze(person);
+
+// 再次检查对象是否被冻结
+console.log(Object.isFrozen(person)); // 输出: true
