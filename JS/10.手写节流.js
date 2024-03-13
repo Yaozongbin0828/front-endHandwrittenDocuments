@@ -15,15 +15,3 @@ function throttle(fn, delay) {
   };
   return _throttle;
 }
-
-function throttle(fn, delay) {
-  let last = 0;
-  const _throttle = function (...args) {
-    const now = new Date().getTime();
-    if (now - last >= delay) {
-      fn.call(this, ...args);
-      last = now;
-    }
-  };
-  return _throttle;
-}
