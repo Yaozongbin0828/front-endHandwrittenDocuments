@@ -1,3 +1,18 @@
+// 语法：function.apply(thisArg, [argsArray])
+// apply 方法与 call 类似，不同之处在于它接受一个参数数组作为函数的参数。第一个参数 thisArg 是函数执行时的上下文，第二个参数是一个数组，包含了传递给函数的参数列表。
+// 业务场景：当你的函数参数以数组形式存在时，可以使用 apply 方法。
+
+let user = {
+    name: 'Alice'
+}
+
+function greet(message){
+    console.log(`$(message),$(this.name)`);   
+}
+
+greet.apply(user,['Hi']) // 输出：Hi, Alice!
+
+
 //手写apply
 Function.prototype.apply = function (thisArg, argArray) {
     const fn = this;
