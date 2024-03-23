@@ -1,3 +1,19 @@
+// 语法：function.bind(thisArg, arg1, arg2, ...)
+// bind 方法创建一个新的函数，其中 this 值被指定为 bind 的第一个参数，并且可以预设部分参数。bind 方法不会立即执行函数，而是返回一个新的函数，可以在稍后调用。
+// 业务场景：当你想要创建一个特定上下文和参数的函数，以便稍后调用时，可以使用 bind 方法。
+
+let user = {
+  name: 'Alice'
+};
+
+function greet(message) {
+  //${} 符号用于插入变量或表达式的值 模板字符串
+  console.log(`${message}, ${this.name}!`);
+}
+
+let greetUser = greet.bind(user);
+greetUser('Welcome');// 输出：Welcome, Alice!
+
 //手写bind
 Function.prototype._bind = function(thisArg,...argArray){
   const fn = this;
