@@ -1,3 +1,15 @@
+// 语法：function.call(thisArg, arg1, arg2, ...)
+// call 方法允许你在指定的 this 值和参数的前提下，调用一个函数。第一个参数 thisArg 是函数执行时的上下文，后续的参数是传递给函数的参数列表。//
+// 业务场景：当你想要立即调用一个函数，并且指定函数内部 this 的值时，可以使用 call 方法。
+
+let user = {
+  name: 'Alice'
+};
+function greet(message) {
+  console.log(`${message}, ${this.name}!`);
+}
+greet.call(user,'Hello')//// 输出：Hello, Alice!
+
 // 手写call
 Function.protype._call = function(thisArg,...args){
   const fn = this;
