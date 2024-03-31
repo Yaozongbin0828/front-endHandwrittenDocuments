@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="https://yaozongbin.gitee.io/">页面跳转</a>
+
+    <input type="button" value="页面跳转" onclick="goToPage()" />
+  </body>
+  <script>
+    const goToPage = () => {
+      window.location = "https://yaozongbin.gitee.io/";
+    };
+
+    const listhenGoToPage = addEventListener("click", goToPage);
+
+    function debounce(fn, delay) {
+      let timer = null;
+      const _debounce = function (...args) {
+        if (timer) clearTimeout(timer);
+        tiemr = setTimeout(() => {
+          fn.apply(this, ...args);
+        }, delay);
+      };
+      return _debounce;
+    }
+
+    // debounce(goToPage());
+  </script>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组操作(控制台)+阶乘计算</title>
+    <style>
+        /* 样式 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        label {
+            font-size: 18px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 0 3px 0;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .tipsDiv {
+            width: 165px;
+            height: 16px;
+            line-height: 16px;
+            background-color: rgb(230, 149, 149);
+            border: #f56c6c solid 1px;
+            margin: 0 auto;
+            border-radius: 6px;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <label for="numInput">请输入1-100之间的数字</label>
+        <br>
+        <input id="numInput">
+        <br>
+        <button onclick="calculateFactorialSum()">点击按钮弹出阶乘结果</button>
+        <div class="tipsDiv">(数组操作请在控制台查看)</div>
+    </div>
+</body>
+<script>
+    // while 5的阶乘
+    var i = 1;
+    var sum = 1;
+    while (i <= 5) {
+        sum *= i;
+        i++;
+    }
+    console.log('while循环求5的阶乘:' + sum); //120 (5的阶乘)
+
+    //for 1! + 2! + 3! + 4! + 5!
+    var jiecheng = 1;
+    for (var i = 1, sum = 0; i <= 5; i++) {
+        jiecheng *= i;
+        sum += jiecheng;
+    }
+    console.log('for循环求5的阶乘的和：' + sum); // 输出 153（1! + 2! + 3! + 4! + 5!）
+
+    // 递归写法
+    function factorial(n) {
+        if (n === 0 || n === 1) {
+            return 1;
+        }
+        return n * factorial(n - 1);
+    }
+    function factorialSum(n) {
+        let sum = 0;
+        for (let i = 1; i <= n; i++) {
+            sum += factorial(i);
+        }
+        return sum;
+    }
+
+    // 计算输出弹窗
+    function calculateFactorialSum() {
+        var inputNumber = document.getElementById('numInput').value;
+
+        if (inputNumber === '' || isNaN(inputNumber)) {
+            alert('请输入数字！')
+        } else {
+            var resultFactorial = factorial(inputNumber);
+            var resultFactorialSum = factorialSum(inputNumber);
+            alert(inputNumber + '的阶乘为:' + resultFactorial);
+            // console.log(resultFactorial);
+            alert(inputNumber + '阶乘的和为:' + resultFactorialSum);
+            // console.log(resultFactorialSum);
+            // 太大的数字会输出无穷大Infinity
+        }
+    }
+
+
+    //数组操作-传参版和无参版(控制台查看)
+
+    //求和 
+    function arrSum() {
+        var arr = [1, 3, 5, 7, 9]
+        var sum = 0;
+        for (var i = 0; i < arr.length; i++) {
+            sum += arr[i]
+        }
+        console.log('无参版求和:' + sum);
+    }
+    arrSum();
+
+    function arrSumParam(arr) {
+        var sum = 0;
+        for (var i = 0; i < arr.length; i++) {
+            sum += arr[i]
+        }
+        console.log('传参版求和:' + sum);
+    }
+    arrSumParam([1, 3, 5, 7, 9])
+
+
+    //最大值
+    function getMax() {
+        var arr = [1, 3, 5, 7, 9]
+        let max = arr[0];
+        for (let i = 0; i < arr.length; i++) {
+            if (max < arr[i]) {
+                max = arr[i];
+            }
+        }
+        console.log('无参版求最大值:' + max);
+    }
+    getMax();
+
+    function getMaxParam(arr) {
+        let max = arr[0];
+        for (let i = 0; i < arr.length; i++) {
+            if (max < arr[i]) {
+                max = arr[i];
+            }
+        }
+        console.log('传参版求最大值:' + max);
+    }
+
+    getMaxParam([1, 3, 5, 7, 9]);
+
+    //最小值
+    function getMin() {
+        var arr = [1, 1, 2, 3, 3, 5, 7, 9, 0];
+        var min = arr[0];
+        for (let i = 0; i < arr.length; i++) {
+            if (min > arr[i]) {
+                min = arr[i];
+            }
+        }
+        console.log('无参版求最小值:' + min);
+    }
+    getMin();
+
+
+    function getMinParam(arr) {
+        var min = arr[0];
+        for (let i = 0; i < arr.length; i++) {
+            if (min > arr[i]) {
+                min = arr[i];
+            }
+        }
+        console.log('传参版求最小值:' + min);
+    }
+    getMinParam([1, 1, 2, 3, 3, 5, 7, 9, 0]);
+
+    //平均值
+    function getAvg() {
+        var arr = [2, 4, 6, 8, 10];
+        var sumAvg = arr[0];
+        for (let i = 0; i < arr.length; i++) {
+            sumAvg += arr[0];
+        }
+        console.log('无参版求平均值:' + sumAvg / arr.length);
+    }
+    getAvg();
+
+    function getAvgParam(arr) {
+        var sumAvg = arr[0];
+        for (let i = 0; i < arr.length; i++) {
+            sumAvg += arr[0];
+        }
+        console.log('传参版求平均值:' + sumAvg / arr.length);
+    }
+    getAvgParam([2, 4, 6, 8, 10]);
+
+    //拼接数组字符
+    function getJoin() {
+        var arr1 = ['花有重开日', '人无再少年', '岁月流走', '慕然回首'];
+        var str = "";
+        for (var i = 1; i < arr1.length; i++) {
+            str += '-' + arr1[i];
+        }
+        console.log('拼接数组字符无参版:' + arr1[0] + str);
+        console.log('拼接数组字符无参版:' + arr1.join('-'));
+    }
+    getJoin();
+
+    function getJoinParam(arr) {
+        var str = "";
+        for (var i = 1; i < arr.length; i++) {
+            str += '-' + arr[i];
+        }
+        console.log('拼接数组字符有参版:' + arr[0] + str);
+        console.log('拼接数组字符有参版:' + arr.join('-'));
+    }
+    getJoinParam(['床前明月光', '疑是地上霜', '岁月流走', '慕然回首']);
+
+    //反转数组
+    function getReverse() {
+        var arr = [1, 2, 3, 4, 5];
+        for (var i = 0; i < arr.length; i++) {
+            var temp = arr[i];
+            arr[i] = arr[arr.length - 1 - i];
+            arr[arr.length - 1 - i] = temp;
+        }
+        console.log("无参版数组反转:" + arr);
+    }
+    getReverse();
+
+    function getReverseParam(arr) {
+        for (var i = 0; i < arr.length; i++) {
+            var temp = arr[i];
+            arr[i] = arr[arr.length - 1 - i];
+            arr[arr.length - 1 - i] = temp;
+        }
+        console.log("传参版数组反转:" + arr);
+    }
+    getReverseParam([1, 2, 3, 4, 5]);
+
+    //冒泡排序
+    function bubbleSortInBook() {
+        var arr = [20, 10, 50, 30, 80, 70, 40]
+        for (var i = 0; i < arr.length - 1; i++) {
+            for (var j = 0; j < arr.length - 1 - i; j++) {
+                if (arr[j] < arr[j + 1]) {
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        console.log('冒泡排序无参写法:');
+        console.log(arr);
+    }
+    bubbleSortInBook();
+
+    //冒泡排序解构写法
+    function bubbleSort(arr) {
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = 0; j < arr.length - 1 - i; j++) {
+                if (arr[j] < arr[j + 1]) {
+                    [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                }
+            }
+        }
+        return arr;
+    }
+    console.log('冒泡排序传参写法:');
+    console.log(bubbleSort([20, 10, 50, 30, 80, 70, 40]));
+
+</script>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script src="arrParams.js"></script> -->
+    <script src="../Day4/day4.js">
+      // function a() {
+      //     console.log('2');
+      // }
+      // a()
+
+      // var a = 1;
+    </script>
+  </head>
+
+  <body></body>
+  <script>
+    back();
+    var x = 1,
+      y = 2;
+    function Num(x, y) {
+      //形参
+      this.x = x;
+      this.y = y;
+    }
+    var num1 = new Num(x, y); //创建对象 x y 12
+    console.log(num1); // 1 2
+    function renum(num) {
+      //num是形参
+      num.x = 2;
+      num.y = 4;
+      console.log(num1.x, num1.y); // 2 4
+      console.log(x, y); // 1 2
+    }
+    renum(num1); // 引用类型作为函数参数 num1是实参
+    console.log(num1); // 2 4
+    console.log(x, y); // 1 2
+  </script>
+</html>
