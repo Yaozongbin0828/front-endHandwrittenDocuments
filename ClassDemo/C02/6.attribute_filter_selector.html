@@ -1,0 +1,25 @@
+﻿<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>属性过滤选择器</title>
+    <script type="text/javascript" src="../C02/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function (e) {
+        $("div[id]").css("background", "red"); //具有id属性的元素
+        // $('div[id="hey"]').css("background", "red"); //id属性为hey元素
+        // $('div[id!="hey"]').css("background", "red");    //id属性不为hey元素
+        // $('div[id^="the"]').css("background", "red");       //id属性以the开头
+        // $('div[id$="be"]').css("background", "red");		  //id属性以be结束
+        // $('div[id*="er"]').css("background", "red");		  //id属性值中包含er
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="hey">具有id属性hey的元素</div>
+    <div id="hey">具有id属性hey的元素</div>
+    <div id="there">具有id属性there的元素</div>
+    <div id="adobe">具有id属性adobe的元素</div>
+    <div>无id属性</div>
+  </body>
+</html>

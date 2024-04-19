@@ -1,0 +1,83 @@
+﻿<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>子元素过滤器</title>
+  <style type="text/css">
+    table {
+      border-collapse: collapse;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      font-size: 9pt;
+    }
+  </style>
+  <script src="jquery-3.3.1.js"></script>
+  <script>
+    $(document).ready(function (e) {
+      // $("tr td:nth-child(2)").css("background", "red");      //让表格单元格第2列
+      // $("tr td:nth-child(even)").css("background", "red");  //偶数单元格
+      // $("tr td:nth-child(odd)").css("background", "red");    //奇数单元格	
+      // $("table tr:first-child").css("background", "red");     //表格第一行
+      // $("table tr:last-child").css("background", "red");     //表格最后一行	
+      // $("td p:only-child").css("background", "red");       //单元格中含有唯一元素<p>	    
+    });
+  </script>
+</head>
+
+<!-- 添加5行6列的表格-->
+
+<body>
+  <table width="600" border="0">
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>
+        <p>张三两</p>
+      </td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+
+</body>
+
+</html>
+
+</html>

@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>可见性过滤选择器</title>
+    <style>
+      /*定义div的外观*/
+      div {
+        width: 70px;
+        height: 40px;
+        background: #ee77ff;
+        margin: 5px;
+        float: left;
+      }
+
+      span {
+        display: block;
+        clear: left;
+        color: #060;
+      }
+
+      /*让页面元素具有隐藏的效果*/
+      .starthidden {
+        display: none;
+      }
+
+      body,
+      td,
+      th {
+        font-size: 9pt;
+      }
+    </style>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+      $(document).ready(function (e) {
+        //在一些浏览器中，隐藏元素也包含 <head>、<title>、<script>等元素
+        //获取隐藏元素但排除<script>
+        var hiddenEls = $("body").find(":hidden").not("script");
+        $("span:first").text("找到" + hiddenEls.length + "个隐藏元素");
+        $("span:last").text("找到" + $("input:hidden").length + "个表单隐藏域");
+        //为可见的按钮元素关联事件处理代码
+        $("div:visible").click(function () {
+          $(this).css("background", "yellow");
+        });
+        //为按钮关联事件处理代码，显示隐藏页面元素
+        $("button").click(function () {
+          // $("div:hidden").show();
+          // $("div:hidden").show("fast");
+          $("div:hidden").show("slow");
+          // $("div:hidden").show(3000);  //动画的显示隐藏元素
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <span></span>
+    <div></div>
+    <div style="display: none">隐藏的元素</div>
+    <div></div>
+    <div class="starthidden">隐藏的页面元素</div>
+    <div></div>
+    <form>
+      <input type="hidden" />
+      <input type="hidden" />
+      <input type="hidden" />
+    </form>
+    <span> </span>
+    <button>显示隐藏元素</button>
+  </body>
+</html>
