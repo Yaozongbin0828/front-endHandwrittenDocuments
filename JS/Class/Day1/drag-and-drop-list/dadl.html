@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag and Drop List Example</title>
+    <style>
+      #list-container {
+        list-style: none;
+        padding: 0;
+        width: 200px;
+      }
+
+      .draggable-item {
+        background-color: #f2f2f2;
+        padding: 10px;
+        margin: 5px 0;
+        cursor: grab;
+      }
+
+      .drag-over {
+        border: 2px dashed #666;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Drag and Drop List Example</h2>
+
+    <ul id="list-container">
+      <li
+        class="draggable-item"
+        draggable="true"
+        ondragstart="dragStartHandler(event)"
+      >
+        Item 1
+      </li>
+      <li
+        class="draggable-item"
+        draggable="true"
+        ondragstart="dragStartHandler(event)"
+      >
+        Item 2
+      </li>
+      <li
+        class="draggable-item"
+        draggable="true"
+        ondragstart="dragStartHandler(event)"
+      >
+        Item 3
+      </li>
+      <li
+        class="draggable-item"
+        draggable="true"
+        ondragstart="dragStartHandler(event)"
+      >
+        Item 4
+      </li>
+    </ul>
+
+    <script>
+      let draggedItem = null;
+
+      function dragStartHandler(event) {
+        draggedItem = event.target;
+        event.dataTransfer.setData("text/plain", ""); // 必须设置数据，但可以为空
+      }
+
+      function dragOverHandler(event) {
+        event.preventDefault();
+        event.target.classList.add("drag-over");
+      }
+
+      function dragLeaveHandler(event) {
+        event.target.classList.remove("drag-over");
+      }
+
+      function dropHandler(event) {
+        event.preventDefault();
+        event.target.classList.remove("drag-over");
+        if (draggedItem !== event.target) {
+          const list = event.target.parentNode;
+          const indexA = Array.from(list.children).indexOf(draggedItem);
+          const indexB = Array.from(list.children).indexOf(event.target);
+          if (indexA < indexB) {
+            list.insertBefore(draggedItem, event.target.nextSibling);
+          } else {
+            list.insertBefore(draggedItem, event.target);
+          }
+        }
+      }
+
+      const items = document.querySelectorAll(".draggable-item");
+      items.forEach((item) => {
+        item.addEventListener("dragover", dragOverHandler);
+        item.addEventListener("dragleave", dragLeaveHandler);
+        item.addEventListener("drop", dropHandler);
+      });
+    </script>
+  </body>
+</html>
