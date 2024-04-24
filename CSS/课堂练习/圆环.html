@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>圆环</title>
+    <style>
+      .Ring {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #fff;
+        border: green solid 50px;
+      }
+      .Ring::before{
+        position: relative;
+        top: 20px;
+        left: 2px;
+        color: #fff;
+        content: "圆环";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Ring"></div>
+  </body>
+</html>
