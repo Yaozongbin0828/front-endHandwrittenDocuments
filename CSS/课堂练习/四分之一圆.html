@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>四分之一圆</title>
+    <style>
+      .quarterCircle {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+        background-color: aqua;
+        border-radius: 50px 0 0 0;
+      }
+
+      .quarterCircle::before {
+        position: relative;
+        content: "四分之一圆";
+        font-size: 8px;
+        top: 20px;
+        left: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="quarterCircle"></div>
+  </body>
+</html>
