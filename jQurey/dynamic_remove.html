@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>移除DOM元素</title>
+    <style type="text/css">
+      body,
+      td,
+      th,
+      input {
+        font-size: 9pt;
+      }
+    </style>
+    <script type="text/javascript" src="jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+      
+      /** remove()方法重新排序序列*/
+      /** 从后往前删除 保证序列*/
+      //   $('p:eq(5)').remove();
+      //   $('p:eq(2)').remove();
+      /////////////////////////////////
+      
+      $(document).ready(function (e) {
+        $("#btnremove").click(function () {
+          var id1 = $("#idtip").remove(); //移除DOM对象
+          $("body").append(id1); //重新添加已被移除的DOM对象
+        });
+        $("#btnempty").click(function () {
+          var id1 = $("#idsenc").empty(); //清除DOM对象
+          //重新添加DOM对象的内容
+          id1.append("这是重新添加的内容哦，原来的内容已被清除了！");
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="idwelcome">演示使用remove和empty方法<br /></div>
+    <div id="idtip"><b>remove方法会从DOM树中移除节点</b><br /></div>
+    <div id="idsenc"><b>empty方法只是清除元素的内容</b><br /></div>
+    <div>
+      <input name="btnremove" type="button" id="btnremove" value="remove方法" />
+      &nbsp;
+      <input name="btnempty" type="button" id="btnempty" value="empty方法" />
+    </div>
+  </body>
+</html>
