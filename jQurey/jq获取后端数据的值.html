@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn" value="获取数据">获取数据</button>
+    <button id="deleteBtn" value="删除">删除数据</button>
+    <span id="result"></span>
+  </body>
+  <script src="../C03/jquery-3.3.1.js"></script>
+  <script>
+    // for (let i = 0; i < 10; i++) {
+    //   $("#container").append("<div>Line " + i + "</div>");
+    // }
+
+    $("#btn").click(function () {
+      $.get(
+        "https://bprod.jack-edu.top/rollCall/getRecord.jsp?class=5&level=1",
+        function (data) {
+          console.log(data);
+
+          $("#result").empty();
+
+          for (let i = 0; i < data.length; i++) {
+            $("#result").append(
+              "下标:" +
+                i +
+                "<div>stuName" +
+                data[i].student_name +
+                "</div>" +
+                "<div>Level:" +
+                data[i].front_end_level +
+                "</div>"
+            );
+          }
+        }
+      );
+    });
+
+    $("#randomBtn").click(function () {
+      $.get(
+        "https://bprod.jack-edu.top/rollCall/getRecord.jsp?class=5&level=1",
+        function (data) {
+          console.log(data);
+          for (let i = 0; i < data.length; i++) {
+            $("#randomResult").randomElement(
+              "下标:" +
+                i +
+                "<div>stuName" +
+                data[i].student_name +
+                "</div>" +
+                "<div>Level:" +
+                data[i].front_end_level +
+                "</div>"
+            );
+          }
+        }
+      );
+    });
+
+    $("#deleteBtn").click(function () {
+      $("#result").empty();
+    });
+
+    let arr = [{ name: "a" }, { name: "b" }];
+    console.log(arr);
+    $("#btn").click(function () {
+      for (let i = 0; i < arr.length; i++) {
+        $("#result").append(arr[i].name);
+      }
+    });
+  </script>
+</html>
