@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>实现简单计算器</title>
+  </head>
+  <body>
+    <h2>简单计算器</h2>
+    <input type="text" id="num1" size="1" />
+    <select name="" id="test">
+      <option value="add">+</option>
+      <option value="jian">-</option>
+      <option value="cheng">x</option>
+      <option value="chu">÷</option>
+    </select>
+    <input type="text" id="num2" size="1" />
+    <button onclick="calc()">js=</button>
+    <button id="calc">jq=</button>
+    <span id="result"></span>
+  </body>
+  <script src="../SchoolDemoForjQurey/C02/jquery-3.3.1.js"></script>
+  <script>
+    // JS
+    function calc() {
+      const num1 = parseFloat(document.getElementById("num1").value);
+      const num2 = parseFloat(document.getElementById("num2").value);
+      const test = document.getElementById("test").value;
+      let result;
+
+      if (test === "add") {
+        result = num1 + num2;
+      } else if (test === "jian") {
+        result = num1 - num2;
+      } else if (test === "cheng") {
+        result = num1 * num2;
+      } else if (test === "chu") {
+        if (num2 === 0) {
+          result = "无法除以0";
+        } else {
+          result = (num1 / num2).toFixed(2);
+        }
+      } else {
+        result = "请选择一个运算符";
+      }
+
+      document.getElementById("result").textContent = `结果:${result}`;
+    }
+
+    // JQ
+    $(function () {
+      $("#calc").click(function () {
+        var num1 = parseFloat($("#num1").val());
+        var num2 = parseFloat($("#num2").val());
+        var test = $("#test").val();
+        var result;
+
+        if (test === "add") {
+          result = num1 + num2;
+        } else if (test === "subtract") {
+          result = num1 - num2;
+        } else if (test === "multiply") {
+          result = num1 * num2;
+        } else if (test === "divide") {
+          if (num2 === 0) {
+            result = "无法除以0";
+          } else {
+            result = (num1 / num2).toFixed(2);
+          }
+        }
+
+        $("#result").text("结果: " + result);
+      });
+    });
+  </script>
+</html>
+
